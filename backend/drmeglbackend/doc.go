@@ -1,5 +1,3 @@
-//go:build linux && cgo
-
 // Package drmeglbackend provides a Dear ImGui backend for Linux DRM/KMS + EGL.
 //
 // It is intended for embedded or kiosk-like environments where rendering happens

@@ -8,6 +8,12 @@ import (
 	"unsafe"
 )
 
+// CChar is a type constraint for C char-compatible byte types.
+// On different targets, C.char may map to either signed or unsigned 8-bit.
+type CChar interface {
+	~int8 | ~uint8
+}
+
 // ReinterpretCast acts exactly like C++'s reinterpret_cast.
 // Intendedd use is to convert packageA.C.MyType to packageB.C.MyType.
 // make sure your types are identical C types before using it.
@@ -19,7 +25,7 @@ func ReinterpretCast[RET, SRC any](src SRC) RET {
 
 // WrapString converts Go string to C char*
 // Default value of RET is C.char
-func WrapString[RET ~int8](value string) (wrapped *RET, finisher func()) {
+func WrapString[RET CChar](value string) (wrapped *RET, finisher func()) {
 	wrapped = ReinterpretCast[*RET](C.CString(value))
 	finisher = func() { C.free(unsafe.Pointer(wrapped)) } // nolint: gas
 	return
@@ -27,7 +33,7 @@ func WrapString[RET ~int8](value string) (wrapped *RET, finisher func()) {
 
 // WrapStringList converts Go string slice to C char**
 // Default value of RET is C.char
-func WrapStringList[RET ~int8](value []string) (wrapped **RET, finisher func()) {
+func WrapStringList[RET CChar](value []string) (wrapped **RET, finisher func()) {
 	if len(value) == 0 {
 		return nil, func() {}
 	}

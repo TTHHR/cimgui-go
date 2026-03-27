@@ -15,7 +15,7 @@ func NewPool[GoCallback any, CCallback comparable](poolElements ...CCallback) *P
 		allocations: make(map[int]GoCallback),
 	}
 
-	for i := range len(poolElements) {
+	for i := 0; i < len(poolElements); i++ {
 		result.pool[i] = poolElements[i]
 	}
 

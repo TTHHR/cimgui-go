@@ -23317,7 +23317,7 @@ func (self *Context) ClipboardHandlerData() vectors.Vector[int8] {
 	}()
 	return func() vectors.Vector[int8] {
 		result := C.wrap_ImGuiContext_GetClipboardHandlerData(internal.ReinterpretCast[*C.ImGuiContext](selfArg))
-		return vectors.NewVectorFromC(result.Size, result.Capacity, (*int8)(result.Data))
+		return vectors.NewVectorFromC(result.Size, result.Capacity, internal.ReinterpretCast[*int8](result.Data))
 	}()
 }
 
@@ -23928,7 +23928,7 @@ func (self *Context) TempBuffer() vectors.Vector[int8] {
 	}()
 	return func() vectors.Vector[int8] {
 		result := C.wrap_ImGuiContext_GetTempBuffer(internal.ReinterpretCast[*C.ImGuiContext](selfArg))
-		return vectors.NewVectorFromC(result.Size, result.Capacity, (*int8)(result.Data))
+		return vectors.NewVectorFromC(result.Size, result.Capacity, internal.ReinterpretCast[*int8](result.Data))
 	}()
 }
 
@@ -28289,7 +28289,7 @@ func (self *InputTextDeactivatedState) TextA() vectors.Vector[int8] {
 	}()
 	return func() vectors.Vector[int8] {
 		result := C.wrap_ImGuiInputTextDeactivatedState_GetTextA(internal.ReinterpretCast[*C.ImGuiInputTextDeactivatedState](selfArg))
-		return vectors.NewVectorFromC(result.Size, result.Capacity, (*int8)(result.Data))
+		return vectors.NewVectorFromC(result.Size, result.Capacity, internal.ReinterpretCast[*int8](result.Data))
 	}()
 }
 
@@ -28504,7 +28504,7 @@ func (self *InputTextState) TextA() vectors.Vector[int8] {
 	}()
 	return func() vectors.Vector[int8] {
 		result := C.wrap_ImGuiInputTextState_GetTextA(internal.ReinterpretCast[*C.ImGuiInputTextState](selfArg))
-		return vectors.NewVectorFromC(result.Size, result.Capacity, (*int8)(result.Data))
+		return vectors.NewVectorFromC(result.Size, result.Capacity, internal.ReinterpretCast[*int8](result.Data))
 	}()
 }
 
@@ -28516,7 +28516,7 @@ func (self *InputTextState) TextToRevertTo() vectors.Vector[int8] {
 	}()
 	return func() vectors.Vector[int8] {
 		result := C.wrap_ImGuiInputTextState_GetTextToRevertTo(internal.ReinterpretCast[*C.ImGuiInputTextState](selfArg))
-		return vectors.NewVectorFromC(result.Size, result.Capacity, (*int8)(result.Data))
+		return vectors.NewVectorFromC(result.Size, result.Capacity, internal.ReinterpretCast[*int8](result.Data))
 	}()
 }
 
@@ -28528,7 +28528,7 @@ func (self *InputTextState) CallbackTextBackup() vectors.Vector[int8] {
 	}()
 	return func() vectors.Vector[int8] {
 		result := C.wrap_ImGuiInputTextState_GetCallbackTextBackup(internal.ReinterpretCast[*C.ImGuiInputTextState](selfArg))
-		return vectors.NewVectorFromC(result.Size, result.Capacity, (*int8)(result.Data))
+		return vectors.NewVectorFromC(result.Size, result.Capacity, internal.ReinterpretCast[*int8](result.Data))
 	}()
 }
 
@@ -37935,7 +37935,7 @@ func (self *TextBuffer) Buf() vectors.Vector[int8] {
 	}()
 	return func() vectors.Vector[int8] {
 		result := C.wrap_ImGuiTextBuffer_GetBuf(internal.ReinterpretCast[*C.ImGuiTextBuffer](selfArg))
-		return vectors.NewVectorFromC(result.Size, result.Capacity, (*int8)(result.Data))
+		return vectors.NewVectorFromC(result.Size, result.Capacity, internal.ReinterpretCast[*int8](result.Data))
 	}()
 }
 

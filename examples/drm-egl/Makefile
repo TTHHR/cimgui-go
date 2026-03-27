@@ -4,4 +4,4 @@ build:
 	go build -v -o example-drm-egl .
 
 run: build
-	./example-drm-egl
+	sudo ./example-drm-egl
